@@ -20,6 +20,7 @@ export default class SimpleBar {
     this.options = { ...SimpleBar.defaultOptions, ...options };
     this.classNames = { ...SimpleBar.defaultOptions.classNames, ...this.options.classNames };
     this.isRtl;
+    this.supportsPassive = false;
     this.axis = {
       x: {
         scrollOffsetAttr: 'scrollLeft',
@@ -97,8 +98,8 @@ export default class SimpleBar {
       isRtlScrollingInverted:
         dummyContainerOffset.left !== dummyContainerChildOffset.left &&
         dummyContainerChildOffset.left -
-          dummyContainerScrollOffsetAfterScroll.left !==
-          0,
+        dummyContainerScrollOffsetAfterScroll.left !==
+        0,
       // determines if the origin scrollbar position is inverted or not (positioned on left or right)
       isRtlScrollbarInverted:
         dummyContainerOffset.left !== dummyContainerChildOffset.left
@@ -238,6 +239,13 @@ export default class SimpleBar {
   }
 
   init() {
+
+    document.createElement("div").addEventListener("test", function() { }, {
+      get passive() {
+        this.supportsPassive = true;
+        return false;
+      }
+    });
     // Save a reference to the instance, so we know this DOM node has already been instancied
     this.el.SimpleBar = this;
 
@@ -361,7 +369,11 @@ export default class SimpleBar {
       'touchend',
       'touchmove'
     ].forEach(e => {
-      this.el.addEventListener(e, this.onPointerEvent, true);
+      if (this.supportsPassive && (e == 'touchmove' || e == 'touchstart')) {
+        this.el.addEventListener(e, this.onPointerEvent, { passive: true });
+      } else {
+        this.el.addEventListener(e, this.onPointerEvent, true);
+      }
     });
     this.el.addEventListener('mousemove', this.onMouseMove);
     this.el.addEventListener('mouseleave', this.onMouseLeave);
@@ -409,7 +421,7 @@ export default class SimpleBar {
 
     this.contentEl.style.padding = `${this.elStyles.paddingTop} ${
       this.elStyles.paddingRight
-    } ${this.elStyles.paddingBottom} ${this.elStyles.paddingLeft}`;
+      } ${this.elStyles.paddingBottom} ${this.elStyles.paddingLeft}`;
     this.contentEl.style.height = isHeightAuto ? 'auto' : '100%';
 
     this.placeholderEl.style.width = `${this.contentEl.scrollWidth}px`;
@@ -417,7 +429,7 @@ export default class SimpleBar {
 
     this.wrapperEl.style.margin = `-${this.elStyles.paddingTop} -${
       this.elStyles.paddingRight
-    } -${this.elStyles.paddingBottom} -${this.elStyles.paddingLeft}`;
+      } -${this.elStyles.paddingBottom} -${this.elStyles.paddingLeft}`;
 
     this.axis.x.track.rect = this.axis.x.track.el.getBoundingClientRect();
     this.axis.y.track.rect = this.axis.y.track.el.getBoundingClientRect();
@@ -496,8 +508,8 @@ export default class SimpleBar {
     let scrollOffset = this.contentEl[this.axis[axis].scrollOffsetAttr];
     scrollOffset =
       axis === 'x' &&
-      this.isRtl &&
-      SimpleBar.getRtlHelpers().isRtlScrollingInverted
+        this.isRtl &&
+        SimpleBar.getRtlHelpers().isRtlScrollingInverted
         ? -scrollOffset
         : scrollOffset;
     let scrollPourcent = scrollOffset / (contentSize - hostSize);
@@ -505,8 +517,8 @@ export default class SimpleBar {
     let handleOffset = ~~((trackSize - scrollbar.size) * scrollPourcent);
     handleOffset =
       axis === 'x' &&
-      this.isRtl &&
-      SimpleBar.getRtlHelpers().isRtlScrollbarInverted
+        this.isRtl &&
+        SimpleBar.getRtlHelpers().isRtlScrollbarInverted
         ? handleOffset + (trackSize - scrollbar.size)
         : handleOffset;
 
@@ -552,8 +564,8 @@ export default class SimpleBar {
       this.contentEl.style[paddingDirection] =
         this.axis.y.isOverflowing || this.axis.y.forceVisible
           ? `calc(${this.elStyles[paddingDirection]} + ${
-              this.minScrollbarWidth
-            }px)`
+          this.minScrollbarWidth
+          }px)`
           : this.elStyles[paddingDirection];
       this.contentEl.style.paddingBottom =
         this.axis.x.isOverflowing || this.axis.x.forceVisible
@@ -715,11 +727,13 @@ export default class SimpleBar {
 
     // If any pointer event is called on the scrollbar
     if (isWithinBoundsY || isWithinBoundsX) {
-      // Preventing the event's default action stops text being
-      // selectable during the drag.
-      e.preventDefault();
-      // Prevent event leaking
-      e.stopPropagation();
+      if (e.type !== 'touchmove' && e.type !== 'touchstart') {
+        // Preventing the event's default action stops text being
+        // selectable during the drag.
+        e.preventDefault();
+        // Prevent event leaking
+        e.stopPropagation();
+      }
 
       if (e.type === 'mousedown') {
         if (isWithinBoundsY) {

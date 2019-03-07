@@ -1,17 +1,20 @@
 {
-  "name": "simplebar-vue",
-  "version": "0.1.4",
+  "name": "@bitsler/simplebar-vue",
+  "version": "0.1.4-patch1",
   "description": "Vue component for SimpleBar",
   "files": [
     "dist"
   ],
   "author": "Piers Olenski",
-  "repository": "grsmto/simplebar",
+  "repository": "uniibu/simplebar",
   "main": "dist/simplebar-vue.js",
   "module": "dist/simplebar-vue.esm.js",
-  "bugs": "https://github.com/grsmto/simplebar/issues",
-  "homepage": "https://grsmto.github.io/simplebar/",
+  "bugs": "https://github.com/uniibu/simplebar/issues",
+  "homepage": "https://uniibu.github.io/simplebar/",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rollup -c",
     "test": "vue-cli-service test:unit",
