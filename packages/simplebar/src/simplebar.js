@@ -64,7 +64,7 @@ export default class SimpleBar {
 
     // getContentElement is deprecated
     this.getContentElement = this.getScrollElement;
-
+    this.checkPassive();
     this.init();
   }
 
@@ -237,15 +237,21 @@ export default class SimpleBar {
         rect.left + (window.pageXOffset || document.documentElement.scrollLeft)
     };
   }
-
+  checkPassive() {
+    const self = this;
+    try {
+      var opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+          self.supportsPassive = true;
+        }
+      });
+      window.addEventListener("testPassive", null, opts);
+      window.removeEventListener("testPassive", null, opts);
+    } catch (e) { }
+  }
   init() {
 
-    document.createElement("div").addEventListener("test", function() { }, {
-      get passive() {
-        this.supportsPassive = true;
-        return false;
-      }
-    });
+
     // Save a reference to the instance, so we know this DOM node has already been instancied
     this.el.SimpleBar = this;
 
