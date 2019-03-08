@@ -1,12 +1,12 @@
 import React from 'react';
 import Select from 'react-select';
 import ReactSimpleBar from 'simplebar-react';
-import SimpleBar from 'simplebar';
+import SimpleBar from '@bitsler/simplebar';
 
-import Playground from 'simplebar/demo/Playground';
+import Playground from '@bitsler/simplebar/demo/Playground';
 
 import 'react-select/dist/react-select.css';
-import 'simplebar/src/simplebar.css';
+import '@bitsler/simplebar/src/simplebar.css';
 
 import './browser/css/demo.css';
 
