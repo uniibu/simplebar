@@ -83,6 +83,10 @@ p {
     padding: 10px;
     min-width: 230px;
     }
+    .demo1 p.odd:hover {
+      background: #666;
+      height: 100px;
+    }
     .demo1 p.odd {
       background: #f0f0f0;
       }
@@ -149,6 +153,10 @@ p {
   height: 200px;
 }
 
+.demo-y-axis.simplebar-dragging .simplebar-scrollbar:before {
+  background-color: red;
+}
+
 .demo-both-axis .box,
 .demo-y-axis .box {
   width: 600px;
@@ -177,4 +185,41 @@ p {
 
 .playground__content {
   grid-column-start: span 2;
+}
+
+.demo-flex {
+  display: flex;
+  width: 100%;
+}
+
+.demo-flex > div {
+  height: 300px;
+}
+
+.demo-flex > div .content {
+  height: 600px;
+}
+
+.demo-flex .left {
+  width: 200px;
+  background: #c5e0f7;
+}
+
+.demo-flex .center {
+  flex: 1;
+}
+
+.demo-flex .right {
+  width: 200px;
+  transition: width 0.3s;
+  background: #ffcfcf;
+}
+
+.demo-height-auto {
+  width: 25vw;
+}
+
+.demo-height-auto .inner {
+  margin-bottom: 2em;
+  width: 25vw;
 }
