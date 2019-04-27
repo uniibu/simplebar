@@ -1,5 +1,5 @@
-import React from "react";
-import SimpleBar from "simplebar-react";
+import React from 'react';
+import SimpleBar from '@bitsler/simplebar-react';
 
 const Index = () => (
   <SimpleBar>

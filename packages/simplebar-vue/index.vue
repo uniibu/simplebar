@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import 'simplebar';
+import '@bitsler/simplebar';
 export default {
   name: 'simplebar-vue'
 }

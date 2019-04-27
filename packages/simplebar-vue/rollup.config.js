@@ -48,6 +48,7 @@ export default [
       format: 'esm'
     },
     plugins: [
+      commonjs(),
       vue(),
       babel({
         runtimeHelpers: true,

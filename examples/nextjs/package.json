@@ -15,7 +15,7 @@
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "simplebar-react": "^0.1.4"
+    "@bitsler/simplebar-react": "^4.0.0"
   },
   "devDependencies": {
     "terser": "^3.14.1"

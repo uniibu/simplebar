@@ -1,32 +1,36 @@
 {
-  "name": "simplebar-react",
-  "version": "1.0.0-alpha.6",
+  "name": "@bitsler/simplebar-react",
+  "version": "4.0.0",
   "description": "React component for SimpleBar",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Adrien Denat",
-  "repository": "grsmto/simplebar",
+  "repository": "uniibu/simplebar",
   "main": "dist/simplebar-react.js",
   "module": "dist/simplebar-react.esm.js",
-  "bugs": "https://github.com/grsmto/simplebar/issues",
-  "homepage": "https://grsmto.github.io/simplebar/",
+  "bugs": "https://github.com/uniibu/simplebar/issues",
+  "homepage": "https://uniibu.github.io/simplebar/",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn run clean && rollup -c",
+    "clean": "rm -rf ./dist",
     "dev": "rollup -c -w",
     "test": "jest"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
-    "simplebar": "^4.0.0-alpha.6"
+    "prop-types": "^15.7.2",
+    "@bitsler/simplebar": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0",
     "react-dom": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0"
   },
   "devDependencies": {
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.8.6"
   },
   "jest": {
     "transform": {

@@ -1,6 +1,6 @@
 {
-  "name": "simplebar-vue",
-  "version": "1.0.0-alpha.6",
+  "name": "@bitsler/simplebar-vue",
+  "version": "4.0.0",
   "description": "Vue component for SimpleBar",
   "files": [
     "dist"
@@ -13,27 +13,28 @@
   "homepage": "https://grsmto.github.io/simplebar/",
   "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn run clean && rollup -c",
+    "clean": "rm -rf ./dist",
     "test": "vue-cli-service test:unit",
     "prepublishOnly": "yarn run build"
   },
   "dependencies": {
-    "simplebar": "^4.0.0-alpha.6"
+    "@bitsler/simplebar": "^4.0.0"
   },
   "peerDependencies": {
     "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-eslint": "^3.3.0",
-    "@vue/cli-plugin-unit-jest": "^3.0.5",
-    "@vue/cli-service": "^3.3.0",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@vue/cli-plugin-babel": "^3.6.0",
+    "@vue/cli-plugin-eslint": "^3.6.0",
+    "@vue/cli-plugin-unit-jest": "^3.6.3",
+    "@vue/cli-service": "^3.6.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.0.1",
-    "rollup-plugin-vue": "4.3.2",
-    "vue": "^2.5.22",
-    "vue-template-compiler": "^2.5.22"
+    "babel-jest": "^24.7.1",
+    "rollup-plugin-vue": "5.0.0",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import 'simplebar';
+import '@bitsler/simplebar';
 
 export default function SimpleBar({
   children,
