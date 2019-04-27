@@ -7,6 +7,7 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "release": "yarn test && yarn build && lerna publish",
+    "publish": "lerna publish",
     "start": "lerna exec --scope=simplebar yarn start",
     "dev": "lerna exec --scope=simplebar yarn dev"
   },

@@ -9,7 +9,7 @@ SimpleBar is meant to be as easy to use as possible and lightweight. If you want
 
 ### Installation
 
-**- Choose your SimpleBar** 
+**- Choose your SimpleBar**
 - **For React** `yarn add simplebar-react`
 - **For Vue** `yarn add simplebar-vue`
 - **For others** `yarn add simplebar`
@@ -38,8 +38,8 @@ Check out the [React](https://github.com/Grsmto/simplebar/blob/master/examples/r
 
 If you are using a module loader (like Webpack) you first need to load SimpleBar:
 ```js
-import 'simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
-import 'simplebar/dist/simplebar.css';
+import '@bitsler/simplebar'; // or "import SimpleBar from 'simplebar';" if you want to use it manually.
+import '@bitsler/simplebar/dist/simplebar.css';
 ```
 
 Set `data-simplebar` on the element you want your custom scrollbar. You're done.
@@ -245,7 +245,7 @@ Website: http://html5up.net/
 ### Community plugins
 
 **Ruby On Rails**
-To include SimpleBar in the Ruby On Rails asset pipeline, use the [simplebar-rails](https://github.com/thutterer/simplebar-rails) gem. 
+To include SimpleBar in the Ruby On Rails asset pipeline, use the [simplebar-rails](https://github.com/thutterer/simplebar-rails) gem.
 
 [npm-badge]: https://img.shields.io/npm/v/simplebar.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/simplebar

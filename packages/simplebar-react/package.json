@@ -22,8 +22,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "@bitsler/simplebar": "^4.0.0"
+    "@bitsler/simplebar": "^4.0.0",
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0",
@@ -42,5 +42,6 @@
     "moduleFileExtensions": [
       "js"
     ]
-  }
+  },
+  "gitHead": "154e640a58a4c36eaf7aaa0ad4e4925efdc5fffd"
 }

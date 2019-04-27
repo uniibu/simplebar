@@ -3,5 +3,13 @@
   "version": "4.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["packages/*"]
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "npmClient": "npm"
+    },
+    "init": {
+      "exact": true
+    }
+  }
 }
