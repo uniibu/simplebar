@@ -1,6 +1,6 @@
 {
   "name": "@bitsler/simplebar-react",
-  "version": "4.0.0",
+  "version": "4.0.0-stable.1",
   "description": "React component for SimpleBar",
   "files": [
     "dist"
@@ -22,7 +22,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@bitsler/simplebar": "^4.0.0",
+    "@bitsler/simplebar": "^4.0.0-stable.1",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
