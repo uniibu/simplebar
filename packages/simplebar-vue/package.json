@@ -5,6 +5,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "Piers Olenski",
   "repository": "grsmto/simplebar",
   "main": "dist/simplebar-vue.js",
@@ -70,5 +73,6 @@
       "jest-serializer-vue"
     ],
     "testURL": "http://localhost/"
-  }
+  },
+  "gitHead": "154e640a58a4c36eaf7aaa0ad4e4925efdc5fffd"
 }
